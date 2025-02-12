@@ -1,19 +1,32 @@
 # terraform-aws-mcaf-organization
+
 Terraform module to manage an AWS Organization.
 
-This module enables centralize root access for member accounts by default. ([AWS Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-enable-root-access.html))
+## Features
 
+- **Centralized Root Access:** Automatically enables centralized root access for member accounts. For more details, see the [AWS Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-enable-root-access.html).
+- **Full Organization Features:** Activates all Organization features and policy types by default.
+- **Recommended AWS Service Access Principals:**  Comes with an out-of-the-box configuration for recommended AWS service access principals to ensure seamless integration with essential AWS services.
 
-By default, the module enables all Organization features and policy types, for a common set of principles. 
+> [!NOTE]
+> This module is designed to work in an environment where AWS Control Tower is enabled. Since AWS Control Tower creates the AWS Organization, you must perform an import of the existing organization into Terraform on the first deployment. This ensures that the module can manage the organization without recreating resources that are already managed by AWS Control Tower.
+
+## Usage
+
+> [!IMPORTANT]
+> We do not pin modules to versions in our examples. We highly recommend that in your code you pin the version to the exact version you are using so that your infrastructure remains stable.
 
 ```hcl
 module "organization" {
-  source = "github.com/schubergphilis/terraform-aws-mcaf-organization"
+    source  = "schubergphilis/mcaf-organization/aws"
 }
 ```
 
 ## Importing an existing organisation
+
 In order to import an existing AWS Organization, add the following to your codebase when first using this module.
+
+HCL:
 
 ```hcl
 data "aws_organizations_organization" "default" {}
@@ -23,7 +36,8 @@ import {
   to = module.organization.aws_organizations_organization.default
 }
 ```
-Or in Python cdktf
+
+Or in Python CDKTF:
 
 ```python
 data_aws_organizations = DataAwsOrganizationsOrganization(self, 'data_aws_organizations')
