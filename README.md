@@ -26,8 +26,10 @@ import {
 Or in Python cdktf
 
 ```python
-self.add_override("moved", {
-    "from": "aws_organizations_organization.aws_org",
+data_aws_organizations = DataAwsOrganizationsOrganization(self, 'data_aws_organizations')
+
+self.add_override("import", {
+    "id": data_aws_organizations.id,
     "to": "module.mcaforg.aws_organizations_organization.default"
 })
 ```
