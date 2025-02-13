@@ -47,7 +47,6 @@ aws_service_access_principals must contain at least the following AWS service ac
 - "config.amazonaws.com"
 - "controltower.amazonaws.com"
 - "iam.amazonaws.com"
-- "iam.amazonaws.com"
 - "securityhub.amazonaws.com"
 - "sso.amazonaws.com"
 EOT
