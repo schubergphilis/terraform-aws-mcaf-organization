@@ -56,7 +56,7 @@ EOT
 variable "enabled_policy_types" {
   type        = list(string)
   nullable    = false
-  default     = ["BACKUP_POLICY", "SERVICE_CONTROL_POLICY", "TAG_POLICY"]
+  default     = ["AISERVICES_OPT_OUT_POLICY", "BACKUP_POLICY", "SERVICE_CONTROL_POLICY", "TAG_POLICY"]
   description = "List of Organizations policy types to enable in the Organization Root."
 }
 
