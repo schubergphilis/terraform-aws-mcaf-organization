@@ -71,15 +71,19 @@ No modules.
 | Name | Type |
 |------|------|
 | [aws_iam_organizations_features.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_organizations_features) | resource |
+| [aws_organizations_delegated_administrator.delegated_admin](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/organizations_delegated_administrator) | resource |
 | [aws_organizations_organization.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/organizations_organization) | resource |
+| [aws_organizations_resource_policy.resource_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/organizations_resource_policy) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_aws_service_access_principals"></a> [aws\_service\_access\_principals](#input\_aws\_service\_access\_principals) | List of AWS service principal names for which you want to enable integration with your organization. | `list(string)` | <pre>[<br/>  "account.amazonaws.com",<br/>  "auditmanager.amazonaws.com",<br/>  "backup.amazonaws.com",<br/>  "cloudtrail.amazonaws.com",<br/>  "compute-optimizer.amazonaws.com",<br/>  "config-multiaccountsetup.amazonaws.com",<br/>  "config.amazonaws.com",<br/>  "controltower.amazonaws.com",<br/>  "guardduty.amazonaws.com",<br/>  "health.amazonaws.com",<br/>  "iam.amazonaws.com",<br/>  "inspector2.amazonaws.com",<br/>  "ipam.amazonaws.com",<br/>  "malware-protection.guardduty.amazonaws.com",<br/>  "ram.amazonaws.com",<br/>  "reporting.trustedadvisor.amazonaws.com",<br/>  "securityhub.amazonaws.com",<br/>  "sso.amazonaws.com",<br/>  "tagpolicies.tag.amazonaws.com"<br/>]</pre> | no |
+| <a name="input_delegated_admins"></a> [delegated\_admins](#input\_delegated\_admins) | List of delegated administrator configurations. | <pre>list(object({<br/>    account_id        = string<br/>    service_principal = string<br/>  }))</pre> | `[]` | no |
 | <a name="input_enabled_features"></a> [enabled\_features](#input\_enabled\_features) | List of IAM features to enable. | `list(string)` | <pre>[<br/>  "RootCredentialsManagement",<br/>  "RootSessions"<br/>]</pre> | no |
 | <a name="input_enabled_policy_types"></a> [enabled\_policy\_types](#input\_enabled\_policy\_types) | List of Organizations policy types to enable in the Organization Root. | `list(string)` | <pre>[<br/>  "AISERVICES_OPT_OUT_POLICY",<br/>  "BACKUP_POLICY",<br/>  "SERVICE_CONTROL_POLICY",<br/>  "TAG_POLICY"<br/>]</pre> | no |
+| <a name="input_organizations_resource_policy"></a> [organizations\_resource\_policy](#input\_organizations\_resource\_policy) | A valid Organizations resource policy document to attach to the organization. | `string` | `null` | no |
 
 ## Outputs
 

@@ -12,4 +12,14 @@ import {
 module "organization" {
   source = "../../"
 
+  delegated_admins = [
+    {
+      account_id        = "111111111111"
+      service_principal = "backup.amazonaws.com"
+    },
+    {
+      account_id        = "222222222222"
+      service_principal = "guardduty.amazonaws.com"
+    }
+  ]
 }
