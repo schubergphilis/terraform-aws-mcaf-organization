@@ -53,6 +53,16 @@ EOT
   }
 }
 
+variable "delegated_admins" {
+  type = list(object({
+    account_id        = string
+    service_principal = string
+  }))
+  nullable    = false
+  default     = []
+  description = "List of delegated administrator configurations."
+}
+
 variable "enabled_policy_types" {
   type        = list(string)
   nullable    = false
@@ -68,4 +78,10 @@ variable "enabled_features" {
     "RootSessions"
   ]
   description = "List of IAM features to enable."
+}
+
+variable "organizations_resource_policy" {
+  type        = string
+  default     = null
+  description = "A valid Organizations resource policy document to attach to the organization."
 }
