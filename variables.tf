@@ -16,6 +16,7 @@ variable "aws_service_access_principals" {
     "inspector2.amazonaws.com",
     "ipam.amazonaws.com",
     "malware-protection.guardduty.amazonaws.com",
+    "member.org.stacksets.cloudformation.amazonaws.com",
     "ram.amazonaws.com",
     "reporting.trustedadvisor.amazonaws.com",
     "securityhub.amazonaws.com",
@@ -34,10 +35,11 @@ variable "aws_service_access_principals" {
         "config.amazonaws.com",
         "controltower.amazonaws.com",
         "iam.amazonaws.com",
+        "member.org.stacksets.cloudformation.amazonaws.com",
         "securityhub.amazonaws.com",
         "sso.amazonaws.com",
       ]
-    )) == 8
+    )) == 9
 
     error_message = <<EOT
 aws_service_access_principals must contain at least the following AWS service access principals:
@@ -47,6 +49,7 @@ aws_service_access_principals must contain at least the following AWS service ac
 - "config.amazonaws.com"
 - "controltower.amazonaws.com"
 - "iam.amazonaws.com"
+- "member.org.stacksets.cloudformation.amazonaws.com"
 - "securityhub.amazonaws.com"
 - "sso.amazonaws.com"
 EOT
