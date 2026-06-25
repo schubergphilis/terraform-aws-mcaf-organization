@@ -2,6 +2,7 @@ variable "aws_service_access_principals" {
   type     = list(string)
   nullable = false
   default = [
+    "access-analyzer.amazonaws.com",
     "account.amazonaws.com",
     "auditmanager.amazonaws.com",
     "backup.amazonaws.com",
@@ -29,6 +30,7 @@ variable "aws_service_access_principals" {
     condition = length(setintersection(
       var.aws_service_access_principals,
       [
+        "access-analyzer.amazonaws.com",
         "account.amazonaws.com",
         "cloudtrail.amazonaws.com",
         "config-multiaccountsetup.amazonaws.com",
@@ -39,10 +41,11 @@ variable "aws_service_access_principals" {
         "securityhub.amazonaws.com",
         "sso.amazonaws.com",
       ]
-    )) == 9
+    )) == 10
 
     error_message = <<EOT
 aws_service_access_principals must contain at least the following AWS service access principals:
+- "access-analyzer.amazonaws.com"
 - "account.amazonaws.com"
 - "cloudtrail.amazonaws.com"
 - "config-multiaccountsetup.amazonaws.com"
